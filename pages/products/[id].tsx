@@ -3,7 +3,10 @@ import { GetServerSideProps } from 'next'
 const ProductDetail: React.FC = (params: any) => {
   const { product } = params
   return (
-    <div>detail: {product.title}</div>
+    <>
+      <div>id: {product.id}</div>
+      <div>title: {product.title}</div>
+    </>
   )
 }
 
