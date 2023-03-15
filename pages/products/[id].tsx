@@ -1,9 +1,13 @@
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 
 const ProductDetail: React.FC = (params: any) => {
   const { product } = params
   return (
     <>
+      <Head>
+        <meta name="description" content="Product detail page"></meta>
+      </Head>
       <div>id: {product.id}</div>
       <div>title: {product.title}</div>
     </>
