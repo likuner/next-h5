@@ -1,20 +1,20 @@
-import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
 
-const ProductDetail: React.FC = () => {
-  const router = useRouter()
-  const { query: { id } = {} } = router
+const ProductDetail: React.FC = (params: any) => {
+  const { product } = params
+  console.log(product, 'product');
   return (
-    <div>detail-{id}</div>
+    <div>detail: {product.title}</div>
   )
 }
 
-export const getServerSideProps = async (params: any) => {
-  console.log(params, 'params')
-  const res = await fetch('https://dummyjson.com/product/1')
-  const data = await res.json()
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { query: { id } } = ctx
+  const res = await fetch(`https://dummyjson.com/product/${id}`)
+  const product = await res.json()
   return {
     props: {
-      data
+      product
     }
   }
 }
