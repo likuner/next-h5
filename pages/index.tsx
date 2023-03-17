@@ -12,9 +12,9 @@ export default function Home() {
     setProducts(products)
   }, [])
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   fetchData()
+  // }, [])
 
   const handleClick = (e: any) => {
     router.push(`/products/${e.id}`)
