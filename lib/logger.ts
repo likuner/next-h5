@@ -2,10 +2,20 @@ import * as log4js from 'log4js'
 
 log4js.configure({
   appenders: {
-    next: { type: 'file', filename: 'log/logger.log', maxLogSize: 1024 * 1024 * 5, backups: 10 }
+    app: {
+      type: 'dateFile',
+      filename: 'log/file',
+      pattern: 'yyyy-MM-dd.log',
+      alwaysIncludePattern: true,
+      keepFileExt: true,
+      numBackups: 7
+    }
   },
   categories: {
-    default: { appenders: ['next'], level: 'info' }
+    default: {
+      appenders: ['app'],
+      level: 'info'
+    }
   },
 })
 
