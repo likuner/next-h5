@@ -3,6 +3,17 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import styles from './index.module.css'
 
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  logger.info(ctx.query)
+  const res = await fetch('https://dummyjson.com/products')
+  const { products } = await res.json()
+  return {
+    props: {
+      products
+    }
+  }
+}
+
 interface IProps {
   products: any[]
 }
@@ -20,17 +31,6 @@ const ProductList: React.FC<IProps> = (props) => {
       )}
     </ul>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  logger.info(ctx.query)
-  const res = await fetch('https://dummyjson.com/products')
-  const { products } = await res.json()
-  return {
-    props: {
-      products
-    }
-  }
 }
 
 export default ProductList
