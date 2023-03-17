@@ -1,3 +1,4 @@
+import { getTraceId } from './index'
 import * as log4js from 'log4js'
 import packageJson from '@/package.json'
 
@@ -38,5 +39,6 @@ log4js.configure({
 })
 
 const logger = log4js.getLogger(appName)
+logger.addContext('traceId', getTraceId())
 
 export default logger
