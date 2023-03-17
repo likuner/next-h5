@@ -1,6 +1,7 @@
-import logger from '@/lib/logger'
-import { GetServerSideProps } from 'next'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
+import logger from '@/lib/logger'
 import styles from './index.module.css'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -21,9 +22,15 @@ interface IProps {
 const ProductList: React.FC<IProps> = (props) => {
   const router = useRouter()
   const { products = [] } = props
+
+  useEffect(() => {
+    console.log(window, 'window')
+  }, [])
+
   const handleClick = (e: any) => {
     router.push(`/products/${e.id}`)
   }
+  
   return (
     <ul className={styles.inline}>
       {products.map((item: any) => 
