@@ -2,7 +2,7 @@ import * as log4js from 'log4js'
 
 log4js.configure({
   appenders: {
-    next: { type: 'file', filename: 'log/logger.log' }
+    next: { type: 'file', filename: 'log/logger.log', maxLogSize: 1, backups: 2 }
   },
   categories: {
     default: { appenders: ['next'], level: 'info' }

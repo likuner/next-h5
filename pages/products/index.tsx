@@ -1,4 +1,4 @@
-import logger from '@/utils/logger'
+import logger from '@/lib/logger'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import styles from './index.module.css'
