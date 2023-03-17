@@ -1,3 +1,4 @@
+import logger from '@/lib/logger'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 
@@ -16,6 +17,7 @@ const ProductDetail: React.FC = (params: any) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { query: { id } } = ctx
+  logger.info(id)
   const res = await fetch(`https://dummyjson.com/product/${id}`)
   const product = await res.json()
   return {

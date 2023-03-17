@@ -23,7 +23,7 @@ const ProductList: React.FC<IProps> = (props) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  logger.warn(ctx)
+  logger.info(ctx.query)
   const res = await fetch('https://dummyjson.com/products')
   const { products } = await res.json()
   return {
