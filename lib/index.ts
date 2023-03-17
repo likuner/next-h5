@@ -1,6 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
 
 /**
+ * Not SSR
+ */
+export const isClient = typeof window !== 'undefined'
+
+/**
  * 生成一个 uuid
  * @returns string
  */
