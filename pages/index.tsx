@@ -8,9 +8,9 @@ export default function Home() {
   const router = useRouter()
   
   const fetchData = useCallback(async () => {
-    const res: any = await get('/products')
-    const { products } = res
-    setProducts(products)
+    // const res: any = await get('/products')
+    // const { products } = res
+    // setProducts(products)
   }, [])
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <ul>
-      <li>Index Page</li>
+      <li onClick={() => router.push('/products')}>Index Page</li>
       {products.map((item: any) => 
         <li key={item.id} onClick={() => handleClick(item)}>{item.title}</li>
       )}
