@@ -1,10 +1,10 @@
 import { NextFetchEvent, NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { post } from './lib/request'
 
 // This function can be marked `async` if using `await` inside
 export function middleware(req: NextRequest, event: NextFetchEvent) {
-  console.info(req.nextUrl.pathname, '--middleware--')
-
+  post('/api/saveLog', ['middleware', 'route', req.nextUrl.pathname])
   return NextResponse.next()
 }
 

@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { GetServerSideProps } from 'next'
-import logger from '@/lib/logger'
 import styles from './index.module.css'
+import { nodeGet } from '@/lib/node-request'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  logger.info(ctx.query)
-  const res = await fetch('https://dummyjson.com/products')
-  const { products } = await res.json()
+  const res:any = await nodeGet('https://dummyjson.com/products')
+  const { products } = res
   return {
     props: {
       products
@@ -22,10 +21,6 @@ interface IProps {
 const ProductList: React.FC<IProps> = (props) => {
   const router = useRouter()
   const { products = [] } = props
-
-  useEffect(() => {
-    console.log(window, 'window')
-  }, [])
 
   const handleClick = (e: any) => {
     router.push(`/products/${e.id}`)

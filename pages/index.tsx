@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { get } from '@/lib/request'
 
 export default function Home() {
   const [products, setProducts] = useState([])
@@ -7,14 +8,14 @@ export default function Home() {
   const router = useRouter()
   
   const fetchData = useCallback(async () => {
-    const res = await fetch('https://dummyjson.com/products')
-    const { products } = await res.json()
+    const res: any = await get('https://dummyjson.com/products')
+    const { products } = res
     setProducts(products)
   }, [])
 
-  // useEffect(() => {
-  //   fetchData()
-  // }, [])
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const handleClick = (e: any) => {
     router.push(`/products/${e.id}`)

@@ -41,4 +41,6 @@ log4js.configure({
 const logger = log4js.getLogger(appName)
 logger.addContext('traceId', getTraceId())
 
-export default logger
+export {
+  logger
+}
