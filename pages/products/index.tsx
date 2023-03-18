@@ -28,11 +28,14 @@ const ProductList: React.FC<IProps> = (props) => {
   }
   
   return (
-    <ul className={styles.inline}>
-      {products.map((item: any) => 
-        <li key={item.id} onClick={() => handleClick(item)}>{item.title}</li>
-      )}
-    </ul>
+    <>
+      products page
+      <ul className={styles.inline}>
+        {products.map((item: any) => 
+          <li key={item.id} onClick={() => handleClick(item)}>{item.title}</li>
+        )}
+      </ul>
+    </>
   )
 }
 
