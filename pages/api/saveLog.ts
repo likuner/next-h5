@@ -10,10 +10,12 @@ export const config = {
   },
 }
 
-export default (req: NextApiRequest, res: NextApiResponse<any>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<any>) => {
   logger.info('referer', req.headers.referer)
   if (req.method === 'POST') {
     logger.info('save-log', req.body)
     res.status(200).json(true)
   }
 }
+
+export default handler
