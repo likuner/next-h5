@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter()
   
   const fetchData = useCallback(async () => {
-    const res: any = await get('https://dummyjson.com/products')
+    const res: any = await get('/products')
     const { products } = res
     setProducts(products)
   }, [])

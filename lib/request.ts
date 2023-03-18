@@ -3,7 +3,7 @@ import qs from 'qs'
 /**
  * 基础路径
  */
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 /**
  * 默认配置

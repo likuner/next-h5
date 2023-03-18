@@ -5,7 +5,7 @@ import styles from './index.module.css'
 import { nodeGet } from '@/lib/node-request'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const res:any = await nodeGet('https://dummyjson.com/products')
+  const res:any = await nodeGet('/products')
   const { products } = res
   return {
     props: {
