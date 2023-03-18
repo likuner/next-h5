@@ -69,7 +69,11 @@ export const request = async (
  * @param options 
  * @returns FetchResult
  */
-export const get = (url: string, params: KeyValString = {}, options: KeyVal = {}) => {
+export const get = (
+  url: string,
+  params: KeyValString = {},
+  options: KeyVal = {}
+) => {
   return request(url, 'get', params, options)
 }
 
@@ -80,6 +84,10 @@ export const get = (url: string, params: KeyValString = {}, options: KeyVal = {}
  * @param options 
  * @returns FetchResult
  */
-export const post = (url: string, params: KeyValString = {}, options: KeyVal = {}) => {
+export const post = (
+  url: string,
+  params: KeyValString = {},
+  options: KeyVal = {}
+) => {
   return request(url, 'post', params, options)
 }
